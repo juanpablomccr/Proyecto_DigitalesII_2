@@ -1,3 +1,5 @@
+`timescale 1ns/1ps
+`include "modules/roundrobin/roundrobin.v"
 module roundrobin_tb;
 wire  clk,
 wire rst,
@@ -50,12 +52,16 @@ module roundrobin_tester(
 		clk,			//reloj
 		rst,			//reset	
 		enb,			//enable
-		out_vchanel0
-		out_vchanel1
-		out_vchanel2
-		out_vchanel3
-		out_wgthd_rndrobin
-		arbiter,		// contador para manejar salida 
+		empty_vchanel0,
+		empty_vchanel1,
+		empty_vchanel2,
+		empty_vchanel3,
+		out_vchanel0, 
+		out_vchanel1,
+		out_vchanel2,
+		out_vchanel3,
+		out_wgthd_rndrobin,
+		arbiter		// contador para manejar salida 
 );
  
 output reg clk;
@@ -84,8 +90,10 @@ parameter [1:0]  VCHANEL2 = 2'b10;
 parameter [1:0]  VCHANEL3 = 2'b11;
 
 
-always #1  clk = ~clk;
-
+always begin
+	#1  clk = ~clk;
+	#3  empty_vchanel = ~clk;
+end
 initial begin
 	$dumpifile(gtkws/roundrobin.vcd);
 	$dumpvars;
@@ -116,44 +124,41 @@ initial begin
 	#15
 	
 	@(posedge clk);
-	arbiter <= VCHANEL0; 
+	arbiter <= VCHANEL4; 
+	
+	@(posedge clk);
+	arbiter <= VCHANEL3; 
+
+	@(posedge clk);
+	arbiter <= VCHANEL1; 
 
 	@(posedge clk);
 	arbiter <= VCHANEL0; 
-
-	@(posedge clk);
-	arbiter <= VCHANEL0; 
-
-	@(posedge clk);
-	arbiter <= VCHANEL0; 
 	
 	@(posedge clk);
 	arbiter <= VCHANEL0; 
 	
 	@(posedge clk);
-	arbiter <= VCHANEL0; 
+	arbiter <= VCHANEL3; 
+	
+	@(posedge clk);
+	arbiter <= VCHANEL2; 
+	
+	@(posedge clk);
+	arbiter <= VCHANEL1; 
 	
 	@(posedge clk);
 	arbiter <= VCHANEL0; 
 	
 	@(posedge clk);
-	arbiter <= VCHANEL0; 
+	arbiter <= VCHANEL3; 
 	
 	@(posedge clk);
-	arbiter <= VCHANEL0; 
+	arbiter <= VCHANEL1; 
 	
 	@(posedge clk);
-	arbiter <= VCHANEL0; 
-	
-	@(posedge clk);
-	arbiter <= VCHANEL0; 
-	
-	@(posedge clk);
-	arbiter <= VCHANEL0; 
+	arbiter <= VCHANEL2; 
 
 	$finish
 end
-
-
-
-
+endmodule
