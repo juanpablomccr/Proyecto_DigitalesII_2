@@ -1,8 +1,9 @@
 `timescale 1ns/1ps
-`include "modules/roundrobin/roundrobin.v"
+`include "sintesis/roundrobin_sintetizado.v"
+`include "libs/cmos_cells.v"
 
 
-module roundrobin_tb;
+module roundrobin_sintetizado_tb;
 wire clk;
 wire rst;
 wire enb;
@@ -18,7 +19,7 @@ wire [3:0] out_wghtd_rndrobin;
 wire [1:0] arbiter;
 
 
-roundrobin weighted_roundrobin(
+roundrobin weighted_roundrobin_sintetizado(
 .clk(clk),
 .rst(rst),
 .enb(enb),
@@ -35,7 +36,7 @@ roundrobin weighted_roundrobin(
 );
 
 
-roundrobin_tester weighted_roundrobin_tester(
+roundrobin_tester weighted_roundrobin_sintetizado_tester(
 .clk(clk),
 .rst(rst),
 .enb(enb),
@@ -104,7 +105,7 @@ always  #5 empty_vchanel3 = !empty_vchanel3;
 
 
 initial begin
-	$dumpfile("gtkws/roundrobin.vcd");
+	$dumpfile("gtkws/roundrobin_sintetizado.vcd");
 	$dumpvars;
 //	$monitor($time,"clk\trst\tenb\tout_vchanel0\tout_vchanel1
 //		\tout_vchanel2\tout_vchanel3\tout_wghtd_rndrobin, "
