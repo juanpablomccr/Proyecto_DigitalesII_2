@@ -97,14 +97,14 @@ parameter [1:0]  VCHANEL3 = 2'b11;
 
 
 always	#1  clk = !clk;
-always  #4 empty_vchanel0 = !empty_vchanel0;
+always  #9 empty_vchanel0 = !empty_vchanel0;
 always  #7 empty_vchanel1 = !empty_vchanel1;
 always  #2 empty_vchanel2 = !empty_vchanel2;
-always  #5 empty_vchanel3 = !empty_vchanel3;
+always  #3 empty_vchanel3 = !empty_vchanel3;
 
 
 initial begin
-	$dumpfile("gtkws/roundrobin.vcd");
+	$dumpfile("gtkws/roundrobin_1.vcd");
 	$dumpvars;
 //	$monitor($time,"clk\trst\tenb\tout_vchanel0\tout_vchanel1
 //		\tout_vchanel2\tout_vchanel3\tout_wghtd_rndrobin, "
@@ -132,45 +132,62 @@ initial begin
 	rst <= 0;
 	enb <= 1;
 	end
+	
+	repeat (2) begin
+		@(posedge clk);
+		arbiter <= VCHANEL2; 
+		
+		@(posedge clk);
+		arbiter <= VCHANEL3; 
 
-	#15
-	@(posedge clk);
-	arbiter <= VCHANEL2; 
-	
-	@(posedge clk);
-	arbiter <= VCHANEL3; 
+		@(posedge clk);
+		arbiter <= VCHANEL1; 
 
+		@(posedge clk);
+		arbiter <= VCHANEL0; 
+		
+		@(posedge clk);
+		arbiter <= VCHANEL0; 
+		
+		@(posedge clk);
+		arbiter <= VCHANEL2; 
+		
+		repeat (5) begin
+			@(posedge clk);
+			arbiter <= VCHANEL3; 
+		end
+		@(posedge clk);
+		arbiter <= VCHANEL1; 
+	
+	end
+	
 	@(posedge clk);
-	arbiter <= VCHANEL1; 
+		out_vchanel0 <= 4'h9; 
+		out_vchanel3 <= 4'hF;
 
-	@(posedge clk);
-	arbiter <= VCHANEL0; 
-	
-	@(posedge clk);
-	arbiter <= VCHANEL0; 
-	
-	@(posedge clk);
-	arbiter <= VCHANEL2; 
-	
-	repeat (5) begin
+
+	repeat (3) begin
+		@(posedge clk);
+		arbiter <= VCHANEL0; 
+		
+		@(posedge clk);
+		arbiter <= VCHANEL3; 
+		
+		@(posedge clk);
+		arbiter <= VCHANEL1; 
+		
+		@(posedge clk);
+		arbiter <= VCHANEL2; 
+
+		@(posedge clk);
+		arbiter <= VCHANEL2; 
+
+		@(posedge clk);
+		arbiter <= VCHANEL0; 
+		
 		@(posedge clk);
 		arbiter <= VCHANEL3; 
 	end
-	@(posedge clk);
-	arbiter <= VCHANEL1; 
-	
-	@(posedge clk);
-	arbiter <= VCHANEL0; 
-	
-	@(posedge clk);
-	arbiter <= VCHANEL2; 
-	
-	@(posedge clk);
-	arbiter <= VCHANEL1; 
-	
-	@(posedge clk);
-	arbiter <= VCHANEL2; 
-
 	$finish;
 end
 endmodule
