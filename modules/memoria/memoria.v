@@ -1,4 +1,4 @@
-module Memoria #(             //-- Parametros
+module memoria #(             //-- Parametros
          parameter AW = 3,    //-- Bits de las direcciones (Adress width)
          parameter DW = 4)    //-- Bits de los datos (Data witdh)
 

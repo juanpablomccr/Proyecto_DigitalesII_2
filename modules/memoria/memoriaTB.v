@@ -6,5 +6,12 @@ module memoriaTB();
   wire [3:0] Q;
 
 
-  Tester T_1(CLK,ENB,DIR,S_IN,MODE,D);
-  R4B R4B_1 (S_OUT,CLK,ENB,DIR,S_IN,MODE,D,Q);
+  tester t_1(clk, AddrA, AdrrB,rwA, rwB, DataInA, DataInB);
+  memoria m_1 (clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB);
+
+  initial
+    begin
+      $dumpfile("Verificador.vcd");
+    end
+
+endmodule

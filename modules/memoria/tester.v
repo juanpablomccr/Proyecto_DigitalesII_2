@@ -1,63 +1,58 @@
-module Tester#(             //-- Parametros
+module tester#(             //-- Parametros
          parameter AW = 3,   //-- Bits de las direcciones (Adress width)
          parameter DW = 4)   //-- Bits de los datos (Data witdh)
 
        (        //-- Puertos
-         output reg clk,                      //-- Señal de reloj global
-         output reg [AW-1: 0] AddrA,      //-- Direcciones
-         output reg [AW-1: 0] AdrrB,
-         output reg rwA,                  //-- Modo lectura (1) o escritura (0)
-         output reg rwB,                  //-- Modo lectura (1) o escritura (0)
-         output reg [DW-1: 0] DataInA,   //-- Dato de entrada
-         output reg [DW-1: 0] DataInB);   //-- Dato de entrada
+             output reg clk,                      //-- Señal de reloj global
+             output reg [AW-1: 0] AddrA,      //-- Direcciones
+             output reg [AW-1: 0] AdrrB,
+             output reg rwA,                  //-- Modo lectura (1) o escritura (0)
+             output reg rwB,                  //-- Modo lectura (1) o escritura (0)
+             output reg [DW-1: 0] DataInA,   //-- Dato de entrada
+             output reg [DW-1: 0] DataInB);   //-- Dato de entrada
 
 
           //Se setea el clock
            always
               begin
-                #4 CLK <= ~CLK;
+                #4 clk <= ~clk;
               end
             initial
 
 
            //Valores iniciales
            begin
-             D<=1000;
              CLK=0;
-             DIR<=0;
-             MODE<=2'b10;
-             ENB<=1;
-             S_IN=0;
+             rwA<=0;
+             rwB<=0;
+             AddrA<=2'b10;
+             AdrrB<=2'b10;
+             DataInA<=4'b1001;
+             DataInB<=4'b1010;
+
 
           // Prueba 1 Data A in
-          ENB =1;
-          MODE<=2'b10;
+          rwA<=0;
+          AddrA<=2'b10;
           #8
-
-       	  DIR <=0;S_IN<=1;
-       	  MODE<=2'b00;
+          DataInA<=4'b1001;
           #32
 
        	  // Prueba 2 Data B in
-       	  ENB =1;
-          MODE<=2'b10;
+          rwA<=0;
+          AddrA<=2'b10;
           #8
-
-       	  DIR <=1;S_IN<=0;
-       	  MODE<=2'b00;
+       	  DataInB<=4'b1010;
           #32
 
           // Prueba 3 Data out B
-          DIR <=0;S_IN<=1;
-          MODE<=2'b01;
+          rwA<=0;
+          AddrA<=2'b10;
           #32
 
        	  // Prueba 4 Data out A
-       	  ENB =1;
-          MODE<=2'b10;
-          #8
-       	  DIR <=1;
-       	  MODE<=2'b01;
+          rwA<=1;
+          AddrB<=2'b10;
           #32
 
 
