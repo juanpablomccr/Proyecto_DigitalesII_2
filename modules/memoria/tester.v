@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module tester#(             //-- Parametros
          parameter AW = 3,   //-- Bits de las direcciones (Adress width)
          parameter DW = 4)   //-- Bits de los datos (Data witdh)
@@ -5,7 +6,7 @@ module tester#(             //-- Parametros
        (        //-- Puertos
              output reg clk,                      //-- Señal de reloj global
              output reg [AW-1: 0] AddrA,      //-- Direcciones
-             output reg [AW-1: 0] AdrrB,
+             output reg [AW-1: 0] AddrB,
              output reg rwA,                  //-- Modo lectura (1) o escritura (0)
              output reg rwB,                  //-- Modo lectura (1) o escritura (0)
              output reg [DW-1: 0] DataInA,   //-- Dato de entrada
@@ -13,20 +14,18 @@ module tester#(             //-- Parametros
 
 
           //Se setea el clock
-           always
-              begin
-                #4 clk <= ~clk;
-              end
-            initial
-
+always
+  begin
+    #4 clk <= ~clk;
+  end
 
            //Valores iniciales
-           begin
-             CLK=0;
+initial begin
+             clk=0;
              rwA<=0;
              rwB<=0;
              AddrA<=2'b10;
-             AdrrB<=2'b10;
+             AddrB<=2'b10;
              DataInA<=4'b1001;
              DataInB<=4'b1010;
 
@@ -57,8 +56,6 @@ module tester#(             //-- Parametros
 
 
 
-              $finish;
-           end
-
-
+$finish;
+end
 endmodule

@@ -1,17 +1,23 @@
 `timescale 1ns / 1ps
 module memoriaTB();
 
-  input wire [1:0] MODE;
-  wire [3:0] D;
-  wire [3:0] Q;
+wire [2: 0] AddrA;
+wire [2: 0] AddrB;
+wire [3: 0] DataInA;
+wire [3: 0] DataInB;
+output wire [3: 0] DataOutA;
+output wire [3: 0] DataOutB;
+wire rwA;
+wire rwB;
 
 
-  tester t_1(clk, AddrA, AdrrB,rwA, rwB, DataInA, DataInB);
+  tester t_1(clk, AddrA, AddrB,rwA, rwB, DataInA, DataInB);
   memoria m_1 (clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB);
 
   initial
     begin
       $dumpfile("Verificador.vcd");
+      $dumpvars;
     end
 
 endmodule

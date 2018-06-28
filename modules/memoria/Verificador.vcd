@@ -1,0 +1,140 @@
+$date
+	Wed Jun 27 18:34:01 2018
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module memoriaTB $end
+$var wire 1 ! rwB $end
+$var wire 1 " rwA $end
+$var wire 1 # clk $end
+$var wire 4 $ DataOutB [3:0] $end
+$var wire 4 % DataOutA [3:0] $end
+$var wire 4 & DataInB [3:0] $end
+$var wire 4 ' DataInA [3:0] $end
+$var wire 3 ( AddrB [2:0] $end
+$var wire 3 ) AddrA [2:0] $end
+$scope module m_1 $end
+$var wire 1 ! rwB $end
+$var wire 1 " rwA $end
+$var wire 1 # clk $end
+$var wire 4 * DataInB [3:0] $end
+$var wire 4 + DataInA [3:0] $end
+$var wire 3 , AddrB [2:0] $end
+$var wire 3 - AddrA [2:0] $end
+$var reg 4 . DataOutA [3:0] $end
+$var reg 4 / DataOutB [3:0] $end
+$upscope $end
+$scope module t_1 $end
+$var reg 3 0 AddrA [2:0] $end
+$var reg 3 1 AddrB [2:0] $end
+$var reg 4 2 DataInA [3:0] $end
+$var reg 4 3 DataInB [3:0] $end
+$var reg 1 # clk $end
+$var reg 1 " rwA $end
+$var reg 1 ! rwB $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1010 3
+b1001 2
+b10 1
+b10 0
+bx /
+bx .
+b10 -
+b10 ,
+b1001 +
+b1010 *
+b10 )
+b10 (
+b1001 '
+b1010 &
+bx %
+bx $
+0#
+0"
+0!
+$end
+#4000
+1#
+#8000
+0#
+#12000
+1#
+#16000
+0#
+#20000
+1#
+#24000
+0#
+#28000
+1#
+#32000
+0#
+#36000
+1#
+#40000
+0#
+#44000
+1#
+#48000
+0#
+#52000
+1#
+#56000
+0#
+#60000
+1#
+#64000
+0#
+#68000
+1#
+#72000
+0#
+#76000
+1#
+#80000
+0#
+#84000
+1#
+#88000
+0#
+#92000
+1#
+#96000
+0#
+#100000
+1#
+#104000
+0#
+#108000
+1#
+#112000
+0#
+1"
+#116000
+b1001 %
+b1001 .
+1#
+#120000
+0#
+#124000
+b1001 $
+b1001 /
+1#
+#128000
+0#
+#132000
+1#
+#136000
+0#
+#140000
+1#
+#144000
+0#
