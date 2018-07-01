@@ -24,7 +24,7 @@ initial begin
              clk=0;
              rwA<=0;
              rwB<=0;
-        
+
 
 
           // Prueba 1 Data A in

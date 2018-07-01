@@ -7,14 +7,12 @@ module memoria(clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB
   wire [2:0] _000_;
   (* src = "memoria.v:20" *)
   wire [3:0] _001_;
-  (* src = "memoria.v:34" *)
+  (* src = "memoria.v:33" *)
   wire [2:0] _002_;
-  (* src = "memoria.v:34" *)
+  (* src = "memoria.v:33" *)
   wire [3:0] _003_;
-  (* src = "memoria.v:20" *)
-  wire [3:0] _004_;
-  (* src = "memoria.v:34" *)
-  wire [3:0] _005_;
+  wire _004_;
+  wire _005_;
   wire _006_;
   wire _007_;
   wire _008_;
@@ -43,8 +41,8 @@ module memoria(clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB
   wire _031_;
   wire _032_;
   wire _033_;
-  wire _034_;
-  wire _035_;
+  wire [3:0] _034_;
+  wire [3:0] _035_;
   wire [3:0] _036_;
   wire [3:0] _037_;
   wire [3:0] _038_;
@@ -57,8 +55,8 @@ module memoria(clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB
   wire [3:0] _045_;
   wire [3:0] _046_;
   wire [3:0] _047_;
-  wire _048_;
-  wire _049_;
+  wire [3:0] _048_;
+  wire [3:0] _049_;
   wire _050_;
   wire _051_;
   wire _052_;
@@ -73,8 +71,8 @@ module memoria(clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB
   wire _061_;
   wire _062_;
   wire _063_;
-  wire [3:0] _064_;
-  wire [3:0] _065_;
+  wire _064_;
+  wire _065_;
   wire [3:0] _066_;
   wire [3:0] _067_;
   wire [3:0] _068_;
@@ -89,9 +87,7 @@ module memoria(clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB
   wire [3:0] _077_;
   wire [3:0] _078_;
   wire [3:0] _079_;
-  (* src = "memoria.v:29" *)
   wire [3:0] _080_;
-  (* src = "memoria.v:43" *)
   wire [3:0] _081_;
   (* src = "memoria.v:4" *)
   input [2:0] AddrA;
@@ -121,17 +117,13 @@ module memoria(clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB
   input rwA;
   (* src = "memoria.v:7" *)
   input rwB;
-  assign _003_[0] = rwB ? (* src = "memoria.v:36" *) DataInB[0] : 1'bx;
-  assign _003_[1] = rwB ? (* src = "memoria.v:36" *) DataInB[1] : 1'bx;
-  assign _003_[2] = rwB ? (* src = "memoria.v:36" *) DataInB[2] : 1'bx;
-  assign _003_[3] = rwB ? (* src = "memoria.v:36" *) DataInB[3] : 1'bx;
-  assign _002_[0] = rwB ? (* src = "memoria.v:36" *) AddrB[0] : 1'bx;
-  assign _002_[1] = rwB ? (* src = "memoria.v:36" *) AddrB[1] : 1'bx;
-  assign _002_[2] = rwB ? (* src = "memoria.v:36" *) AddrB[2] : 1'bx;
-  assign _005_[0] = rwB ? (* src = "memoria.v:36" *) DataInB[0] : _081_[0];
-  assign _005_[1] = rwB ? (* src = "memoria.v:36" *) DataInB[1] : _081_[1];
-  assign _005_[2] = rwB ? (* src = "memoria.v:36" *) DataInB[2] : _081_[2];
-  assign _005_[3] = rwB ? (* src = "memoria.v:36" *) DataInB[3] : _081_[3];
+  assign _003_[0] = rwB ? (* src = "memoria.v:35" *) DataInB[0] : 1'bx;
+  assign _003_[1] = rwB ? (* src = "memoria.v:35" *) DataInB[1] : 1'bx;
+  assign _003_[2] = rwB ? (* src = "memoria.v:35" *) DataInB[2] : 1'bx;
+  assign _003_[3] = rwB ? (* src = "memoria.v:35" *) DataInB[3] : 1'bx;
+  assign _002_[0] = rwB ? (* src = "memoria.v:35" *) AddrB[0] : 1'bx;
+  assign _002_[1] = rwB ? (* src = "memoria.v:35" *) AddrB[1] : 1'bx;
+  assign _002_[2] = rwB ? (* src = "memoria.v:35" *) AddrB[2] : 1'bx;
   assign _001_[0] = rwA ? (* src = "memoria.v:22" *) DataInA[0] : 1'bx;
   assign _001_[1] = rwA ? (* src = "memoria.v:22" *) DataInA[1] : 1'bx;
   assign _001_[2] = rwA ? (* src = "memoria.v:22" *) DataInA[2] : 1'bx;
@@ -139,14 +131,14 @@ module memoria(clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB
   assign _000_[0] = rwA ? (* src = "memoria.v:22" *) AddrA[0] : 1'bx;
   assign _000_[1] = rwA ? (* src = "memoria.v:22" *) AddrA[1] : 1'bx;
   assign _000_[2] = rwA ? (* src = "memoria.v:22" *) AddrA[2] : 1'bx;
-  assign _004_[0] = rwA ? (* src = "memoria.v:22" *) DataInA[0] : _080_[0];
-  assign _004_[1] = rwA ? (* src = "memoria.v:22" *) DataInA[1] : _080_[1];
-  assign _004_[2] = rwA ? (* src = "memoria.v:22" *) DataInA[2] : _080_[2];
-  assign _004_[3] = rwA ? (* src = "memoria.v:22" *) DataInA[3] : _080_[3];
-  assign _080_[0] = AddrA[2] ? _037_[0] : _036_[0];
-  assign _080_[1] = AddrA[2] ? _037_[1] : _036_[1];
-  assign _080_[2] = AddrA[2] ? _037_[2] : _036_[2];
-  assign _080_[3] = AddrA[2] ? _037_[3] : _036_[3];
+  assign _034_[0] = rwA ? DataOutA[0] : _048_[0];
+  assign _034_[1] = rwA ? DataOutA[1] : _048_[1];
+  assign _034_[2] = rwA ? DataOutA[2] : _048_[2];
+  assign _034_[3] = rwA ? DataOutA[3] : _048_[3];
+  assign _048_[0] = AddrA[2] ? _037_[0] : _036_[0];
+  assign _048_[1] = AddrA[2] ? _037_[1] : _036_[1];
+  assign _048_[2] = AddrA[2] ? _037_[2] : _036_[2];
+  assign _048_[3] = AddrA[2] ? _037_[3] : _036_[3];
   assign _036_[0] = AddrA[1] ? _039_[0] : _038_[0];
   assign _036_[1] = AddrA[1] ? _039_[1] : _038_[1];
   assign _036_[2] = AddrA[1] ? _039_[2] : _038_[2];
@@ -171,10 +163,14 @@ module memoria(clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB
   assign _041_[1] = AddrA[0] ? \ram[7] [1] : \ram[6] [1];
   assign _041_[2] = AddrA[0] ? \ram[7] [2] : \ram[6] [2];
   assign _041_[3] = AddrA[0] ? \ram[7] [3] : \ram[6] [3];
-  assign _081_[0] = AddrB[2] ? _043_[0] : _042_[0];
-  assign _081_[1] = AddrB[2] ? _043_[1] : _042_[1];
-  assign _081_[2] = AddrB[2] ? _043_[2] : _042_[2];
-  assign _081_[3] = AddrB[2] ? _043_[3] : _042_[3];
+  assign _035_[0] = rwB ? DataOutB[0] : _049_[0];
+  assign _035_[1] = rwB ? DataOutB[1] : _049_[1];
+  assign _035_[2] = rwB ? DataOutB[2] : _049_[2];
+  assign _035_[3] = rwB ? DataOutB[3] : _049_[3];
+  assign _049_[0] = AddrB[2] ? _043_[0] : _042_[0];
+  assign _049_[1] = AddrB[2] ? _043_[1] : _042_[1];
+  assign _049_[2] = AddrB[2] ? _043_[2] : _042_[2];
+  assign _049_[3] = AddrB[2] ? _043_[3] : _042_[3];
   assign _042_[0] = AddrB[1] ? _045_[0] : _044_[0];
   assign _042_[1] = AddrB[1] ? _045_[1] : _044_[1];
   assign _042_[2] = AddrB[1] ? _045_[2] : _044_[2];
@@ -199,202 +195,194 @@ module memoria(clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB
   assign _047_[1] = AddrB[0] ? \ram[7] [1] : \ram[6] [1];
   assign _047_[2] = AddrB[0] ? \ram[7] [2] : \ram[6] [2];
   assign _047_[3] = AddrB[0] ? \ram[7] [3] : \ram[6] [3];
-  assign _064_[0] = _048_ ? _001_[0] : \ram[0] [0];
-  assign _064_[1] = _048_ ? _001_[1] : \ram[0] [1];
-  assign _064_[2] = _048_ ? _001_[2] : \ram[0] [2];
-  assign _064_[3] = _048_ ? _001_[3] : \ram[0] [3];
-  assign _065_[0] = _049_ ? _003_[0] : _064_[0];
-  assign _065_[1] = _049_ ? _003_[1] : _064_[1];
-  assign _065_[2] = _049_ ? _003_[2] : _064_[2];
-  assign _065_[3] = _049_ ? _003_[3] : _064_[3];
-  assign _066_[0] = _050_ ? _001_[0] : \ram[1] [0];
-  assign _066_[1] = _050_ ? _001_[1] : \ram[1] [1];
-  assign _066_[2] = _050_ ? _001_[2] : \ram[1] [2];
-  assign _066_[3] = _050_ ? _001_[3] : \ram[1] [3];
+  assign _066_[0] = _050_ ? _001_[0] : \ram[0] [0];
+  assign _066_[1] = _050_ ? _001_[1] : \ram[0] [1];
+  assign _066_[2] = _050_ ? _001_[2] : \ram[0] [2];
+  assign _066_[3] = _050_ ? _001_[3] : \ram[0] [3];
   assign _067_[0] = _051_ ? _003_[0] : _066_[0];
   assign _067_[1] = _051_ ? _003_[1] : _066_[1];
   assign _067_[2] = _051_ ? _003_[2] : _066_[2];
   assign _067_[3] = _051_ ? _003_[3] : _066_[3];
-  assign _068_[0] = _052_ ? _001_[0] : \ram[2] [0];
-  assign _068_[1] = _052_ ? _001_[1] : \ram[2] [1];
-  assign _068_[2] = _052_ ? _001_[2] : \ram[2] [2];
-  assign _068_[3] = _052_ ? _001_[3] : \ram[2] [3];
+  assign _068_[0] = _052_ ? _001_[0] : \ram[1] [0];
+  assign _068_[1] = _052_ ? _001_[1] : \ram[1] [1];
+  assign _068_[2] = _052_ ? _001_[2] : \ram[1] [2];
+  assign _068_[3] = _052_ ? _001_[3] : \ram[1] [3];
   assign _069_[0] = _053_ ? _003_[0] : _068_[0];
   assign _069_[1] = _053_ ? _003_[1] : _068_[1];
   assign _069_[2] = _053_ ? _003_[2] : _068_[2];
   assign _069_[3] = _053_ ? _003_[3] : _068_[3];
-  assign _070_[0] = _054_ ? _001_[0] : \ram[3] [0];
-  assign _070_[1] = _054_ ? _001_[1] : \ram[3] [1];
-  assign _070_[2] = _054_ ? _001_[2] : \ram[3] [2];
-  assign _070_[3] = _054_ ? _001_[3] : \ram[3] [3];
+  assign _070_[0] = _054_ ? _001_[0] : \ram[2] [0];
+  assign _070_[1] = _054_ ? _001_[1] : \ram[2] [1];
+  assign _070_[2] = _054_ ? _001_[2] : \ram[2] [2];
+  assign _070_[3] = _054_ ? _001_[3] : \ram[2] [3];
   assign _071_[0] = _055_ ? _003_[0] : _070_[0];
   assign _071_[1] = _055_ ? _003_[1] : _070_[1];
   assign _071_[2] = _055_ ? _003_[2] : _070_[2];
   assign _071_[3] = _055_ ? _003_[3] : _070_[3];
-  assign _072_[0] = _056_ ? _001_[0] : \ram[4] [0];
-  assign _072_[1] = _056_ ? _001_[1] : \ram[4] [1];
-  assign _072_[2] = _056_ ? _001_[2] : \ram[4] [2];
-  assign _072_[3] = _056_ ? _001_[3] : \ram[4] [3];
+  assign _072_[0] = _056_ ? _001_[0] : \ram[3] [0];
+  assign _072_[1] = _056_ ? _001_[1] : \ram[3] [1];
+  assign _072_[2] = _056_ ? _001_[2] : \ram[3] [2];
+  assign _072_[3] = _056_ ? _001_[3] : \ram[3] [3];
   assign _073_[0] = _057_ ? _003_[0] : _072_[0];
   assign _073_[1] = _057_ ? _003_[1] : _072_[1];
   assign _073_[2] = _057_ ? _003_[2] : _072_[2];
   assign _073_[3] = _057_ ? _003_[3] : _072_[3];
-  assign _074_[0] = _058_ ? _001_[0] : \ram[5] [0];
-  assign _074_[1] = _058_ ? _001_[1] : \ram[5] [1];
-  assign _074_[2] = _058_ ? _001_[2] : \ram[5] [2];
-  assign _074_[3] = _058_ ? _001_[3] : \ram[5] [3];
+  assign _074_[0] = _058_ ? _001_[0] : \ram[4] [0];
+  assign _074_[1] = _058_ ? _001_[1] : \ram[4] [1];
+  assign _074_[2] = _058_ ? _001_[2] : \ram[4] [2];
+  assign _074_[3] = _058_ ? _001_[3] : \ram[4] [3];
   assign _075_[0] = _059_ ? _003_[0] : _074_[0];
   assign _075_[1] = _059_ ? _003_[1] : _074_[1];
   assign _075_[2] = _059_ ? _003_[2] : _074_[2];
   assign _075_[3] = _059_ ? _003_[3] : _074_[3];
-  assign _076_[0] = _060_ ? _001_[0] : \ram[6] [0];
-  assign _076_[1] = _060_ ? _001_[1] : \ram[6] [1];
-  assign _076_[2] = _060_ ? _001_[2] : \ram[6] [2];
-  assign _076_[3] = _060_ ? _001_[3] : \ram[6] [3];
+  assign _076_[0] = _060_ ? _001_[0] : \ram[5] [0];
+  assign _076_[1] = _060_ ? _001_[1] : \ram[5] [1];
+  assign _076_[2] = _060_ ? _001_[2] : \ram[5] [2];
+  assign _076_[3] = _060_ ? _001_[3] : \ram[5] [3];
   assign _077_[0] = _061_ ? _003_[0] : _076_[0];
   assign _077_[1] = _061_ ? _003_[1] : _076_[1];
   assign _077_[2] = _061_ ? _003_[2] : _076_[2];
   assign _077_[3] = _061_ ? _003_[3] : _076_[3];
-  assign _078_[0] = _062_ ? _001_[0] : \ram[7] [0];
-  assign _078_[1] = _062_ ? _001_[1] : \ram[7] [1];
-  assign _078_[2] = _062_ ? _001_[2] : \ram[7] [2];
-  assign _078_[3] = _062_ ? _001_[3] : \ram[7] [3];
+  assign _078_[0] = _062_ ? _001_[0] : \ram[6] [0];
+  assign _078_[1] = _062_ ? _001_[1] : \ram[6] [1];
+  assign _078_[2] = _062_ ? _001_[2] : \ram[6] [2];
+  assign _078_[3] = _062_ ? _001_[3] : \ram[6] [3];
   assign _079_[0] = _063_ ? _003_[0] : _078_[0];
   assign _079_[1] = _063_ ? _003_[1] : _078_[1];
   assign _079_[2] = _063_ ? _003_[2] : _078_[2];
   assign _079_[3] = _063_ ? _003_[3] : _078_[3];
-  assign _030_ = ~_000_[0];
-  assign _031_ = ~_000_[1];
-  assign _032_ = ~_000_[2];
-  assign _033_ = ~_002_[0];
-  assign _034_ = ~_002_[1];
-  assign _035_ = ~_002_[2];
+  assign _080_[0] = _064_ ? _001_[0] : \ram[7] [0];
+  assign _080_[1] = _064_ ? _001_[1] : \ram[7] [1];
+  assign _080_[2] = _064_ ? _001_[2] : \ram[7] [2];
+  assign _080_[3] = _064_ ? _001_[3] : \ram[7] [3];
+  assign _081_[0] = _065_ ? _003_[0] : _080_[0];
+  assign _081_[1] = _065_ ? _003_[1] : _080_[1];
+  assign _081_[2] = _065_ ? _003_[2] : _080_[2];
+  assign _081_[3] = _065_ ? _003_[3] : _080_[3];
+  assign _028_ = ~_000_[0];
+  assign _029_ = ~_000_[1];
+  assign _030_ = ~_000_[2];
+  assign _031_ = ~_002_[0];
+  assign _032_ = ~_002_[1];
+  assign _033_ = ~_002_[2];
   always @(posedge clk)
-      \ram[1] [0] <= _067_[0];
+      \ram[2] [0] <= _071_[0];
   always @(posedge clk)
-      \ram[1] [1] <= _067_[1];
+      \ram[2] [1] <= _071_[1];
   always @(posedge clk)
-      \ram[1] [2] <= _067_[2];
+      \ram[2] [2] <= _071_[2];
   always @(posedge clk)
-      \ram[1] [3] <= _067_[3];
+      \ram[2] [3] <= _071_[3];
   always @(posedge clk)
-      \ram[7] [0] <= _079_[0];
+      DataOutA[0] <= _034_[0];
   always @(posedge clk)
-      \ram[7] [1] <= _079_[1];
+      DataOutA[1] <= _034_[1];
   always @(posedge clk)
-      \ram[7] [2] <= _079_[2];
+      DataOutA[2] <= _034_[2];
   always @(posedge clk)
-      \ram[7] [3] <= _079_[3];
+      DataOutA[3] <= _034_[3];
   always @(posedge clk)
-      \ram[6] [0] <= _077_[0];
+      \ram[1] [0] <= _069_[0];
   always @(posedge clk)
-      \ram[6] [1] <= _077_[1];
+      \ram[1] [1] <= _069_[1];
   always @(posedge clk)
-      \ram[6] [2] <= _077_[2];
+      \ram[1] [2] <= _069_[2];
   always @(posedge clk)
-      \ram[6] [3] <= _077_[3];
+      \ram[1] [3] <= _069_[3];
   always @(posedge clk)
-      \ram[5] [0] <= _075_[0];
+      \ram[7] [0] <= _081_[0];
   always @(posedge clk)
-      \ram[5] [1] <= _075_[1];
+      \ram[7] [1] <= _081_[1];
   always @(posedge clk)
-      \ram[5] [2] <= _075_[2];
+      \ram[7] [2] <= _081_[2];
   always @(posedge clk)
-      \ram[5] [3] <= _075_[3];
+      \ram[7] [3] <= _081_[3];
   always @(posedge clk)
-      \ram[4] [0] <= _073_[0];
+      \ram[6] [0] <= _079_[0];
   always @(posedge clk)
-      \ram[4] [1] <= _073_[1];
+      \ram[6] [1] <= _079_[1];
   always @(posedge clk)
-      \ram[4] [2] <= _073_[2];
+      \ram[6] [2] <= _079_[2];
   always @(posedge clk)
-      \ram[4] [3] <= _073_[3];
+      \ram[6] [3] <= _079_[3];
   always @(posedge clk)
-      \ram[3] [0] <= _071_[0];
+      \ram[5] [0] <= _077_[0];
   always @(posedge clk)
-      \ram[3] [1] <= _071_[1];
+      \ram[5] [1] <= _077_[1];
   always @(posedge clk)
-      \ram[3] [2] <= _071_[2];
+      \ram[5] [2] <= _077_[2];
   always @(posedge clk)
-      \ram[3] [3] <= _071_[3];
+      \ram[5] [3] <= _077_[3];
   always @(posedge clk)
-      \ram[2] [0] <= _069_[0];
+      \ram[4] [0] <= _075_[0];
   always @(posedge clk)
-      \ram[2] [1] <= _069_[1];
+      \ram[4] [1] <= _075_[1];
   always @(posedge clk)
-      \ram[2] [2] <= _069_[2];
+      \ram[4] [2] <= _075_[2];
   always @(posedge clk)
-      \ram[2] [3] <= _069_[3];
-  (* src = "memoria.v:34" *)
+      \ram[4] [3] <= _075_[3];
   always @(posedge clk)
-      DataOutB[0] <= _005_[0];
-  (* src = "memoria.v:34" *)
+      \ram[3] [0] <= _073_[0];
   always @(posedge clk)
-      DataOutB[1] <= _005_[1];
-  (* src = "memoria.v:34" *)
+      \ram[3] [1] <= _073_[1];
   always @(posedge clk)
-      DataOutB[2] <= _005_[2];
-  (* src = "memoria.v:34" *)
+      \ram[3] [2] <= _073_[2];
   always @(posedge clk)
-      DataOutB[3] <= _005_[3];
-  (* src = "memoria.v:20" *)
+      \ram[3] [3] <= _073_[3];
   always @(posedge clk)
-      DataOutA[0] <= _004_[0];
-  (* src = "memoria.v:20" *)
+      \ram[0] [0] <= _067_[0];
   always @(posedge clk)
-      DataOutA[1] <= _004_[1];
-  (* src = "memoria.v:20" *)
+      \ram[0] [1] <= _067_[1];
   always @(posedge clk)
-      DataOutA[2] <= _004_[2];
-  (* src = "memoria.v:20" *)
+      \ram[0] [2] <= _067_[2];
   always @(posedge clk)
-      DataOutA[3] <= _004_[3];
+      \ram[0] [3] <= _067_[3];
   always @(posedge clk)
-      \ram[0] [0] <= _065_[0];
+      DataOutB[0] <= _035_[0];
   always @(posedge clk)
-      \ram[0] [1] <= _065_[1];
+      DataOutB[1] <= _035_[1];
   always @(posedge clk)
-      \ram[0] [2] <= _065_[2];
+      DataOutB[2] <= _035_[2];
   always @(posedge clk)
-      \ram[0] [3] <= _065_[3];
-  assign _006_ = _031_ & _032_;
-  assign _007_ = _030_ & _006_;
-  assign _048_ = _007_ & rwA;
-  assign _008_ = _034_ & _035_;
-  assign _009_ = _033_ & _008_;
-  assign _049_ = _009_ & rwB;
-  assign _010_ = _000_[0] & _006_;
-  assign _050_ = _010_ & rwA;
-  assign _011_ = _002_[0] & _008_;
-  assign _051_ = _011_ & rwB;
-  assign _012_ = _000_[1] & _032_;
-  assign _013_ = _030_ & _012_;
-  assign _052_ = _013_ & rwA;
-  assign _014_ = _002_[1] & _035_;
-  assign _015_ = _033_ & _014_;
-  assign _053_ = _015_ & rwB;
-  assign _016_ = _000_[0] & _012_;
-  assign _054_ = _016_ & rwA;
-  assign _017_ = _002_[0] & _014_;
-  assign _055_ = _017_ & rwB;
-  assign _018_ = _031_ & _000_[2];
-  assign _019_ = _030_ & _018_;
-  assign _056_ = _019_ & rwA;
-  assign _020_ = _034_ & _002_[2];
-  assign _021_ = _033_ & _020_;
-  assign _057_ = _021_ & rwB;
-  assign _022_ = _000_[0] & _018_;
-  assign _058_ = _022_ & rwA;
-  assign _023_ = _002_[0] & _020_;
-  assign _059_ = _023_ & rwB;
-  assign _024_ = _000_[1] & _000_[2];
-  assign _025_ = _030_ & _024_;
-  assign _060_ = _025_ & rwA;
-  assign _026_ = _002_[1] & _002_[2];
-  assign _027_ = _033_ & _026_;
-  assign _061_ = _027_ & rwB;
-  assign _028_ = _000_[0] & _024_;
-  assign _062_ = _028_ & rwA;
-  assign _029_ = _002_[0] & _026_;
-  assign _063_ = _029_ & rwB;
+      DataOutB[3] <= _035_[3];
+  assign _004_ = _029_ & _030_;
+  assign _005_ = _028_ & _004_;
+  assign _050_ = _005_ & rwA;
+  assign _006_ = _032_ & _033_;
+  assign _007_ = _031_ & _006_;
+  assign _051_ = _007_ & rwB;
+  assign _008_ = _000_[0] & _004_;
+  assign _052_ = _008_ & rwA;
+  assign _009_ = _002_[0] & _006_;
+  assign _053_ = _009_ & rwB;
+  assign _010_ = _000_[1] & _030_;
+  assign _011_ = _028_ & _010_;
+  assign _054_ = _011_ & rwA;
+  assign _012_ = _002_[1] & _033_;
+  assign _013_ = _031_ & _012_;
+  assign _055_ = _013_ & rwB;
+  assign _014_ = _000_[0] & _010_;
+  assign _056_ = _014_ & rwA;
+  assign _015_ = _002_[0] & _012_;
+  assign _057_ = _015_ & rwB;
+  assign _016_ = _029_ & _000_[2];
+  assign _017_ = _028_ & _016_;
+  assign _058_ = _017_ & rwA;
+  assign _018_ = _032_ & _002_[2];
+  assign _019_ = _031_ & _018_;
+  assign _059_ = _019_ & rwB;
+  assign _020_ = _000_[0] & _016_;
+  assign _060_ = _020_ & rwA;
+  assign _021_ = _002_[0] & _018_;
+  assign _061_ = _021_ & rwB;
+  assign _022_ = _000_[1] & _000_[2];
+  assign _023_ = _028_ & _022_;
+  assign _062_ = _023_ & rwA;
+  assign _024_ = _002_[1] & _002_[2];
+  assign _025_ = _031_ & _024_;
+  assign _063_ = _025_ & rwB;
+  assign _026_ = _000_[0] & _022_;
+  assign _064_ = _026_ & rwA;
+  assign _027_ = _002_[0] & _024_;
+  assign _065_ = _027_ & rwB;
 endmodule

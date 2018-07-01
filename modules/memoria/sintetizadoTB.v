@@ -12,11 +12,11 @@ wire rwB;
 
 
   tester t_1(clk, AddrA, AddrB,rwA, rwB, DataInA, DataInB);
-  memoria m_1 (clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB);
+  memSintetizado mS_1 (clk, AddrA, AddrB, rwA, rwB, DataInA, DataInB, DataOutA, DataOutB);
 
   initial
     begin
-      $dumpfile("memoriaConductual.vcd");
+      $dumpfile("memoriaSintetizado.vcd");
       $dumpvars;
     end
 
