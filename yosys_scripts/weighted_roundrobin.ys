@@ -1,0 +1,15 @@
+read_verilog -Ivvp modules/weighted_roundrobin/weighted_roundrobin.v
+hierarchy -check -top w_rndrobin
+proc;
+opt;
+fsm;
+opt;
+memory;
+opt;
+techmap;
+opt;
+write_verilog sintesis/weighted_roundrobin_rtlil.v
+dfflibmap -liberty libs/cmos_cells.lib;
+abc -liberty libs/cmos_cells.lib;
+clean
+write_verilog sintesis/weighted_roundrobin_sintetizado.v

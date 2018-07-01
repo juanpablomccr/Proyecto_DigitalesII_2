@@ -1,0 +1,15 @@
+read_verilog -I vvp modules/arbiter_interface/arbiter_interface.v
+hierarchy -check -top arbiter_interface
+proc;
+opt;
+fsm;
+opt;
+memory;
+opt;
+techmap;
+opt;
+write_verilog sintesis/arbiter_interface_rtlil.v
+dfflibmap -liberty libs/cmos_cells.lib;
+abc -liberty libs/cmos_cells.lib;
+clean
+write_verilog sintesis/arbiter_interface_sintetizado.v

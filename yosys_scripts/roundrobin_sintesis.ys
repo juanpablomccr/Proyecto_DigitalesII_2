@@ -1,0 +1,15 @@
+read_verilog -Ivvp modules/roundrobin/roundrobin.v
+hierarchy -check -top roundrobin
+proc;
+opt;
+fsm;
+opt;
+memory;
+opt;
+techmap;
+opt;
+write_verilog sintesis/roundrobin_rtlil.v
+dfflibmap -liberty libs/cmos_cells.lib;
+abc -liberty libs/cmos_cells.lib;
+clean
+write_verilog sintesis/roundrobin_sintetizado.v

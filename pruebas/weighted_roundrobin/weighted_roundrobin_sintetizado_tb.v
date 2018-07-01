@@ -8,7 +8,7 @@
 `endif
 
 
-/*******************TESTER*********************************/                         
+/******************TESTER*********************************/                         
 
 module w_rndrobin_tester(
 		clk0,
@@ -61,7 +61,7 @@ always #9 empty_vchannel1 <= ~empty_vchannel1;
 always #7 empty_vchannel2 <= ~empty_vchannel2;
 always #5 empty_vchannel3 <= ~empty_vchannel3;
 initial begin
-	$dumpfile("gtkws/weigthed_roundrobin.vcd");
+	$dumpfile("gtkws/weigthed_roundrobin_sintetizado.vcd");
 	$dumpvars;
 
 	clk0 <= 0;
