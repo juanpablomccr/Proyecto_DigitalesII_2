@@ -3,53 +3,104 @@ module roundrobin(
 		clk,			
 		rst,			
 		enb,		
-		empty_vchanel0, 
-		empty_vchanel1, 
-		empty_vchanel2, 
-		empty_vchanel3, 
-		out_vchanel0, 
-		out_vchanel1, 
-		out_vchanel2, 
-		out_vchanel3, 
-		out_wghtd_rndrobin,
-		arbiter	
+		valid_channel,
+		pop_vchannel0, 
+		pop_vchannel1, 
+		pop_vchannel2, 
+		pop_vchannel3, 
+		arbiter,	
+		wghtd_output
 );
  
 input wire clk;
 input wire rst;
 input wire enb;
 input wire [1:0] arbiter; 
-input wire empty_vchanel0;
-input wire empty_vchanel1;
-input wire empty_vchanel2;
-input wire empty_vchanel3;
-input wire [3:0] out_vchanel0;
-input wire [3:0] out_vchanel1;
-input wire [3:0] out_vchanel2;
-input wire [3:0] out_vchanel3;
-output reg [3:0] out_wghtd_rndrobin;
+input wire [3:0] pop_vchannel0;
+input wire [3:0] pop_vchannel1;
+input wire [3:0] pop_vchannel2;
+input wire [3:0] pop_vchannel3;
+input wire [3:0] valid_channel;
+output reg [3:0] wghtd_output;
 
-//parametros
+//para poder decidir que hacer en caso de que el canal al que se le da priori-
+//dad
+//parametros//
 parameter [1:0] VCHANEL0 = 2'b00;
 parameter [1:0] VCHANEL1 = 2'b01;
 parameter [1:0] VCHANEL2 = 2'b10;
 parameter [1:0] VCHANEL3 = 2'b11;
-parameter [3:0] INACTIVE = 4'b00;
+parameter  VALID =    1'b1; 
+parameter  INVALID =  1'b0;
 
-//case para asigna
-//dada por el
+parameter [3:0] EMPTY = 4'b0000;
 
+//variable auxiliar para almacenar el canal anterior
+//El comportamiento por defecto cuando llega prioridad a un canal vacio es
+//el de pasar el canal0, sinoe el uno y asi sucesivamente hast alcanzar el
+//canal3
+initial begin
+wghtd_output <= EMPTY ;
+end
 always@( posedge clk) begin
 	if(rst) begin
-	out_wghtd_rndrobin <= INACTIVE;
+	wghtd_output <= EMPTY ;
 	
 	end else if(!rst && enb ) begin
 						
 	case (arbiter)					
-		VCHANEL0: out_wghtd_rndrobin <= !empty_vchanel0 ? out_vchanel0 : INACTIVE;
-		VCHANEL1: out_wghtd_rndrobin <= !empty_vchanel1 ? out_vchanel1 : INACTIVE; 
-		VCHANEL2: out_wghtd_rndrobin <= !empty_vchanel2 ? out_vchanel2 : INACTIVE; 
-		VCHANEL3: out_wghtd_rndrobin <= !empty_vchanel3 ? out_vchanel3 : INACTIVE; 
+	VCHANEL0: begin 
+		if(valid_channel[0]==1'b1) begin
+		wghtd_output <= pop_vchannel0; 
+		end else if(valid_channel[1]==1'b1) begin
+		wghtd_output <= pop_vchannel1; 
+		end else if(valid_channel[2]==1'b1) begin
+		wghtd_output <= pop_vchannel2; 
+		end else if(valid_channel[3]==1'b1) begin
+		wghtd_output <= pop_vchannel3; 
+		end else if(valid_channel==4'b0000)begin
+		wghtd_output <=  EMPTY;
+		end
+	end
+	VCHANEL1: begin
+		if(valid_channel[1]==1'b1) begin
+		wghtd_output <= pop_vchannel1; 
+		end else if(valid_channel[0]==1'b1) begin
+		wghtd_output <= pop_vchannel0; 
+		end else if(valid_channel[2]==1'b1) begin
+		wghtd_output <= pop_vchannel2; 
+		end else if(valid_channel[3]==1'b1) begin
+		wghtd_output <= pop_vchannel3; 
+		end else if(valid_channel==4'b0000)begin
+		wghtd_output <=  EMPTY;
+		end
+	end
+	VCHANEL2: begin
+		if(valid_channel[2]==1'b1) begin
+		wghtd_output <= pop_vchannel2; 
+		end else if(valid_channel[1]==1'b1) begin
+		wghtd_output <= pop_vchannel1; 
+		end else if(valid_channel[2]==1'b1) begin
+		wghtd_output <= pop_vchannel2; 
+		end else if(valid_channel[3]==1'b1) begin
+		wghtd_output <= pop_vchannel3; 
+		end else if(valid_channel==4'b0000)begin
+		wghtd_output <=  EMPTY;
+		end
+	end
+	VCHANEL3: begin 
+		if(valid_channel[3]==1'b1) begin
+		wghtd_output <= pop_vchannel3; 
+		end else if(valid_channel[0]==1'b1) begin
+		wghtd_output <= pop_vchannel0; 
+		end else if(valid_channel[1]==1'b1) begin
+		wghtd_output <= pop_vchannel1; 
+		end else if(valid_channel[2]==1'b1) begin
+		wghtd_output <= pop_vchannel2; 
+		end else if(valid_channel==4'b0000)begin
+		wghtd_output <=  EMPTY;
+		end
+	end
 	endcase
 	end
 

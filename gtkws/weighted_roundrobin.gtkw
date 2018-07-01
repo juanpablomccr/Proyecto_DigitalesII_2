@@ -1,0 +1,44 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Sun Jul  1 00:18:01 2018
+[*]
+[dumpfile] "/media/juanpablo/Datos/U_postconape/1-2018/Digitales_2/Proyecto_DigitalesII_2/gtkws/weigthed_roundrobin.vcd"
+[dumpfile_mtime] "Sun Jul  1 00:01:46 2018"
+[dumpfile_size] 17821
+[savefile] "/media/juanpablo/Datos/U_postconape/1-2018/Digitales_2/Proyecto_DigitalesII_2/gtkws/weighted_roundrobin.gtkw"
+[timestart] 63060
+[size] 1920 1018
+[pos] -1 -1
+*-14.155929 131000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] w_rndrobin_tb.
+[sst_width] 267
+[signals_width] 220
+[sst_expanded] 1
+[sst_vpaned_height] 273
+@28
+w_rndrobin_tb.w_rndrobin_tester.clk0
+w_rndrobin_tb.w_rndrobin_tester.enb
+w_rndrobin_tb.w_rndrobin_tester.rst
+w_rndrobin_tb.w_rndrobin_tester.init
+w_rndrobin_tb.w_rndrobin_tester.empty_vchannel0
+w_rndrobin_tb.w_rndrobin_tester.empty_vchannel1
+w_rndrobin_tb.w_rndrobin_tester.empty_vchannel2
+w_rndrobin_tb.w_rndrobin_tester.empty_vchannel3
+@22
+w_rndrobin_tb.w_rndrobin_tester.pop_vchannel0[3:0]
+w_rndrobin_tb.w_rndrobin_tester.pop_vchannel1[3:0]
+w_rndrobin_tb.w_rndrobin_tester.pop_vchannel2[3:0]
+w_rndrobin_tb.w_rndrobin_tester.pop_vchannel3[3:0]
+@c00022
+w_rndrobin_tb.w_rndrobin_tester.wghtd_output[3:0]
+@28
+(0)w_rndrobin_tb.w_rndrobin_tester.wghtd_output[3:0]
+(1)w_rndrobin_tb.w_rndrobin_tester.wghtd_output[3:0]
+(2)w_rndrobin_tb.w_rndrobin_tester.wghtd_output[3:0]
+(3)w_rndrobin_tb.w_rndrobin_tester.wghtd_output[3:0]
+@1401200
+-group_end
+@22
+w_rndrobin_tb.w_rndrobin_tester.tester_input[127:0]
+[pattern_trace] 1
+[pattern_trace] 0
