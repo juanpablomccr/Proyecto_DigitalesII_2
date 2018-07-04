@@ -73,7 +73,7 @@ input[3:0] data;
 
 
    if( almostFull )
-            $display("Cannot push: Buffer Almost Full");
+            $display("Almost Full, Pause");
         else
         begin
            $display("Pushed",data );
@@ -89,7 +89,7 @@ task pop;
 output [3:0] data;
 
    if( almostEmpty )
-            $display("Cannot Pop: Buffer Almost Empty");
+            $display("Almost Empty, Continue");
    else
         begin
 
