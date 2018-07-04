@@ -1,0 +1,15 @@
+read_verilog fifo.v
+hierarchy -check -top fifo
+proc;
+opt;
+fsm;
+opt;
+memory;
+opt;
+techmap;
+opt;
+write_verilog rtlil.v
+dfflibmap -liberty cmos_cells.lib;
+abc -liberty cmos_cells.lib;
+clean
+write_verilog fifoSintetizado.v
