@@ -37,6 +37,8 @@ reg  [6:0] addr;
 
 initial begin
 	addr = 7'd0; 
+	arbiter_input = VCHANEL0;
+	
 	vc_priority_table[1:0] = VCHANEL3;	
 	vc_priority_table[3:2] = VCHANEL2;	
 	vc_priority_table[5:4] = VCHANEL3;	
@@ -105,7 +107,7 @@ end
 
 always@(posedge clk)  begin
 	if(rst)
-	arbiter_input <= arbiter_input;
+	arbiter_input <= VCHANEL0;
 	else if(!rst&enb) begin
 		case(init)	
 		OFF: begin
