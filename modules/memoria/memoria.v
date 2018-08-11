@@ -34,7 +34,7 @@ localparam NPOS = 2 ** 3;
 	begin
 		if (rwB)
 		begin
-			ram[AddrB] <= DataInB; 
+			ram[AddrB] <= DataInB;
 		end
 		else
 		begin
